@@ -6,6 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_movie_card"
+    android:layout_marginEnd="@dimen/primary_padding"
     android:padding="@dimen/primary_padding">
 
     <ImageView
@@ -27,6 +29,7 @@
         android:paddingStart="@dimen/primary_padding"
         android:paddingEnd="@dimen/primary_padding"
         android:lines="2"
+        android:textColor="@color/grey_line_delimiter"
         android:gravity="center"
         android:ellipsize="end"
         app:layout_constraintStart_toStartOf="@+id/movieBannerImView"

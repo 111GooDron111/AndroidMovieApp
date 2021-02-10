@@ -4,4 +4,5 @@
     <dimen name="banner_width">104dp</dimen>
     <dimen name="banner_height">152dp</dimen>
     <dimen name="header_text_size">24sp</dimen>
+    <dimen name="delimiter_line_width">1dp</dimen>
 </resources>
