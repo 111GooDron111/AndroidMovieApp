@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="primary_padding">8dp</dimen>
+    <dimen name="banner_width">104dp</dimen>
+    <dimen name="banner_height">152dp</dimen>
+    <dimen name="header_text_size">24sp</dimen>
+</resources>
