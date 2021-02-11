@@ -11,10 +11,12 @@
         android:id="@+id/bannerInfoImView"
         android:layout_width="@dimen/banner_width"
         android:layout_height="@dimen/banner_height"
-        app:layout_constraintEnd_toStartOf="@+id/titleMovieInfoTextView"
-        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/titleMovieInfoTextView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.012" />
 
     <TextView
         android:id="@+id/titleMovieInfoTextView"
@@ -25,9 +27,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01999998"
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toEndOf="@+id/bannerInfoImView"
+        app:layout_constraintTop_toTopOf="@+id/bannerInfoImView"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="Hello" />
 
     <TextView

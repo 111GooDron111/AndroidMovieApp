@@ -1,4 +1,4 @@
-package com.dmabram15.androidmovieapp.view
+package com.dmabram15.androidmovieapp.viewmodel
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -11,14 +11,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.dmabram15.androidmoviesapp.R
 import com.dmabram15.androidmovieapp.model.Movie
-import com.dmabram15.androidmovieapp.viewmodel.OnMovieCardClickListener
 import com.google.android.material.textview.MaterialTextView
 import java.io.BufferedInputStream
 
-class MovieCardAdapter(private val context: Context?, private val movies: ArrayList<Movie>)
+class MovieCardAdapter(private val context: Context?,
+                       private val movies: ArrayList<Movie>,
+                       private val onMovieCardClickListener : OnMovieCardClickListener)
     : RecyclerView.Adapter<MovieCardAdapter.MovieCardViewHolder>() {
-
-    var onMovieCardClickListener : OnMovieCardClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieCardViewHolder {
         var view: View = LayoutInflater.from(context).inflate(R.layout.movie_card,
@@ -29,13 +28,17 @@ class MovieCardAdapter(private val context: Context?, private val movies: ArrayL
     override fun onBindViewHolder(holder: MovieCardViewHolder, position: Int) {
         setImage(holder, position)
         setTitle(holder, position)
-        setOnClickListener(holder, position)
+        //Привязываем обработчик view
+        holder.movieItem.setOnClickListener{
+            onMovieCardClickListener.onMovieCardClick(movies[position])
+        }
     }
 
     override fun getItemCount(): Int {
         return movies.size
     }
 
+    // По пути получает баннер и устанавливает в ImageView
     private fun setImage(cardViewHolder: MovieCardViewHolder, position: Int) {
         val reader = BufferedInputStream(context?.assets?.open(movies[position].assetPath))
         val bitmap : Bitmap = BitmapFactory.decodeStream(reader)
@@ -45,12 +48,6 @@ class MovieCardAdapter(private val context: Context?, private val movies: ArrayL
 
     private fun setTitle(cardViewHolder: MovieCardViewHolder, position: Int) {
         cardViewHolder.materialTextView.text = movies[position].title
-    }
-
-    private fun setOnClickListener(cardViewHolder: MovieCardViewHolder, position: Int){
-        cardViewHolder.movieItem.setOnClickListener{
-            onMovieCardClickListener?.onMovieCardClick(movies[position])
-        }
     }
 
     fun changeMovies(movies: ArrayList<Movie>){

@@ -14,15 +14,21 @@ import androidx.lifecycle.Observer
 import com.dmabram15.androidmoviesapp.R
 import com.dmabram15.androidmovieapp.model.Movie
 import com.dmabram15.androidmovieapp.viewmodel.MainViewModel
+import com.dmabram15.androidmovieapp.viewmodel.MovieInfoFragmentViewModel
 import java.io.BufferedInputStream
 
 class MovieInfoFragment : Fragment() {
 
+
+
     companion object {
+        val MOVIE_KEY = "movie"
         fun newInstance() = MovieInfoFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var selectedMovie : Movie
+
+    private lateinit var viewModel: MovieInfoFragmentViewModel
     private lateinit var title : TextView
     private lateinit var description : TextView
     private lateinit var bitmapBanner : ImageView
@@ -38,8 +44,8 @@ class MovieInfoFragment : Fragment() {
 
         val observer : Observer<Movie> = Observer { showMovie(it) }
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewModel.getMovie().observe(viewLifecycleOwner, observer)
+        viewModel = ViewModelProvider(this)
+            .get(MovieInfoFragmentViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,6 +54,9 @@ class MovieInfoFragment : Fragment() {
         title = view.findViewById(R.id.titleMovieInfoTextView)
         description = view.findViewById(R.id.descriptionInfoTextView)
         bitmapBanner = view.findViewById(R.id.bannerInfoImView)
+
+        selectedMovie = ((arguments?.getParcelable<Movie>(MOVIE_KEY)) as Movie)
+        showMovie(selectedMovie)
     }
 
     private fun showMovie(it: Movie?) {
