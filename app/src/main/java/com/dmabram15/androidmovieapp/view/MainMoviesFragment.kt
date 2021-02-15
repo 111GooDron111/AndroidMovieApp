@@ -81,5 +81,7 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
             ?.replace(R.id.container, infoFragment)
             ?.addToBackStack("")
             ?.commitAllowingStateLoss()
+
+        recommendedRV.snackBarShow("${movie.title} is showing")
     }
 }
