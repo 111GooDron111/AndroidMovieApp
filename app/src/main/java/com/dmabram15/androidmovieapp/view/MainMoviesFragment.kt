@@ -28,7 +28,9 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
         fun newInstance() = MainMoviesFragment()
     }
 
-    private lateinit var viewModel: MainMoviesFragmentViewModel
+    private val viewModel: MainMoviesFragmentViewModel by lazy {
+        ViewModelProvider(this).get(MainMoviesFragmentViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +51,7 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
 
     private fun initializeProperties() {
         Observer<ArrayList<Movie>> { renderMovies(it) }.also { moviesObserver = it }
-        viewModel = ViewModelProvider(this).get(MainMoviesFragmentViewModel::class.java)
+
         viewModel.getMovies().observe(viewLifecycleOwner, moviesObserver)
         viewModel.getMovieFromData()
     }
@@ -59,10 +61,9 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
 
         adapter = MovieCardAdapter(context, movies, this)
         recommendedRV.adapter = adapter
-
-        var linearLayoutManager = LinearLayoutManager(context)
-        linearLayoutManager.orientation = RecyclerView.HORIZONTAL
-        recommendedRV.layoutManager = linearLayoutManager
+        recommendedRV.layoutManager = LinearLayoutManager(context).apply {
+            orientation = RecyclerView.HORIZONTAL
+        }
     }
 
     //Отображение фильмов
@@ -73,7 +74,7 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
     override fun onMovieCardClick(movie: Movie) {
         val bundle = Bundle()
         bundle.putParcelable(MovieInfoFragment.MOVIE_KEY, movie)
-        var infoFragment = MovieInfoFragment.newInstance()
+        val infoFragment = MovieInfoFragment.newInstance()
         infoFragment.arguments = bundle
         activity?.supportFragmentManager
             ?.beginTransaction()

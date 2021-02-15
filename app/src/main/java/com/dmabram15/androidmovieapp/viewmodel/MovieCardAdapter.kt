@@ -20,7 +20,7 @@ class MovieCardAdapter(private val context: Context?,
     : RecyclerView.Adapter<MovieCardAdapter.MovieCardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieCardViewHolder {
-        var view: View = LayoutInflater.from(context).inflate(R.layout.movie_card,
+        val view = LayoutInflater.from(context).inflate(R.layout.movie_card,
                 parent, false)
         return MovieCardViewHolder(view)
     }

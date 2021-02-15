@@ -13,26 +13,23 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.dmabram15.androidmoviesapp.R
 import com.dmabram15.androidmovieapp.model.Movie
-import com.dmabram15.androidmovieapp.viewmodel.MainViewModel
 import com.dmabram15.androidmovieapp.viewmodel.MovieInfoFragmentViewModel
 import java.io.BufferedInputStream
 
 class MovieInfoFragment : Fragment() {
-
-
-
     companion object {
         val MOVIE_KEY = "movie"
         fun newInstance() = MovieInfoFragment()
     }
 
     private lateinit var selectedMovie : Movie
-
-    private lateinit var viewModel: MovieInfoFragmentViewModel
     private lateinit var title : TextView
     private lateinit var description : TextView
     private lateinit var bitmapBanner : ImageView
 
+    private val viewModel: MovieInfoFragmentViewModel by lazy {
+        ViewModelProvider(this).get(MovieInfoFragmentViewModel::class.java)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -41,11 +38,6 @@ class MovieInfoFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        val observer : Observer<Movie> = Observer { showMovie(it) }
-
-        viewModel = ViewModelProvider(this)
-            .get(MovieInfoFragmentViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
