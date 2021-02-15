@@ -7,7 +7,7 @@ class DataMoviesRepositoryImp() : MoviesRepository {
 
     private val pathPrefix: String = "imagecache/"
 
-    private val movies = listOf(
+    private val movies = arrayListOf(
         Movie(
             "Stranger Things", "BlaBLaBla...",
             "${pathPrefix}stranger_things.jpg"
@@ -35,7 +35,7 @@ class DataMoviesRepositoryImp() : MoviesRepository {
     )
 
     override fun getMovies(): ArrayList<Movie> {
-        return (movies as ArrayList<Movie>)
+        return (movies)
     }
 
     private fun getUrl(path: String): URL {

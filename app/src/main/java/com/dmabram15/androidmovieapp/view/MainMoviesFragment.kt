@@ -22,7 +22,7 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
 
     private lateinit var recommendedRV: RecyclerView
 
-    private lateinit var moviesObserver : Observer<ArrayList<Movie>>
+    private lateinit var moviesObserver: Observer<ArrayList<Movie>>
 
     companion object {
         fun newInstance() = MainMoviesFragment()
@@ -57,16 +57,16 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
     }
 
     //Настройка и отображение ресайклера
-    private fun setRecyclerViews(context: Context, movies : ArrayList<Movie>) {
+    private fun setRecyclerViews(context: Context, movies: ArrayList<Movie>) {
 
         adapter = MovieCardAdapter(context, movies, this)
         recommendedRV.adapter = adapter
-        recommendedRV.layoutManager = LinearLayoutManager(context).apply {
-            orientation = RecyclerView.HORIZONTAL
-        }
+        recommendedRV.layoutManager = LinearLayoutManager(context)
+            .apply {
+                orientation = RecyclerView.HORIZONTAL
+            }
     }
 
-    //Отображение фильмов
     private fun renderMovies(it: ArrayList<Movie>) {
         this.context?.let { it1 -> setRecyclerViews(it1, it) }
     }
@@ -82,6 +82,7 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
             ?.addToBackStack("")
             ?.commitAllowingStateLoss()
 
-        recommendedRV.snackBarShow("${movie.title} is showing")
+        (activity?.findViewById<View>(R.id.delimiterLineView))
+            ?.snackBarShow("${movie.title} is showing")
     }
 }

@@ -22,17 +22,19 @@ class MovieInfoFragment : Fragment() {
         fun newInstance() = MovieInfoFragment()
     }
 
-    private lateinit var selectedMovie : Movie
-    private lateinit var title : TextView
-    private lateinit var description : TextView
-    private lateinit var bitmapBanner : ImageView
+    private lateinit var selectedMovie: Movie
+    private lateinit var title: TextView
+    private lateinit var description: TextView
+    private lateinit var bitmapBanner: ImageView
 
     private val viewModel: MovieInfoFragmentViewModel by lazy {
         ViewModelProvider(this).get(MovieInfoFragmentViewModel::class.java)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.movie_info_fragment, container, false)
     }
 
@@ -57,11 +59,10 @@ class MovieInfoFragment : Fragment() {
         bitmapBanner.setImageBitmap(getBitmap(it?.assetPath))
     }
 
-    private fun getBitmap(assetPath: String?) : Bitmap{
+    private fun getBitmap(assetPath: String?): Bitmap {
         val reader = BufferedInputStream(context?.assets?.open(assetPath.toString()))
-        val bitmap : Bitmap = BitmapFactory.decodeStream(reader)
+        val bitmap: Bitmap = BitmapFactory.decodeStream(reader)
         reader.close()
         return bitmap
     }
-
 }
