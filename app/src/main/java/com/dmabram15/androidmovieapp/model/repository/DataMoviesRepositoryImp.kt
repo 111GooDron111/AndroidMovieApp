@@ -1,5 +1,6 @@
-package com.dmabram15.androidmovieapp.model
+package com.dmabram15.androidmovieapp.model.repository
 
+import com.dmabram15.androidmovieapp.model.Movie
 import java.io.File
 import java.net.URL
 

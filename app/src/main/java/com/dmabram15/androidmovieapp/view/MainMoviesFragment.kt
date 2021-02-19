@@ -15,12 +15,13 @@ import com.dmabram15.androidmovieapp.model.Movie
 import com.dmabram15.androidmovieapp.viewmodel.MainMoviesFragmentViewModel
 import com.dmabram15.androidmovieapp.viewmodel.MovieCardAdapter
 import com.dmabram15.androidmovieapp.viewmodel.OnMovieCardClickListener
+import com.dmabram15.androidmoviesapp.databinding.MainFragmentBinding
 
 class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
 
     private lateinit var adapter: MovieCardAdapter
 
-    private lateinit var recommendedRV: RecyclerView
+    private lateinit var binding: MainFragmentBinding
 
     private lateinit var moviesObserver: Observer<ArrayList<Movie>>
 
@@ -36,7 +37,8 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        binding = MainFragmentBinding.inflate(inflater)
+        return binding.main
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -46,7 +48,6 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recommendedRV = view.findViewById(R.id.recommendedRV)
     }
 
     private fun initializeProperties() {
@@ -60,8 +61,8 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
     private fun setRecyclerViews(context: Context, movies: ArrayList<Movie>) {
 
         adapter = MovieCardAdapter(context, movies, this)
-        recommendedRV.adapter = adapter
-        recommendedRV.layoutManager = LinearLayoutManager(context)
+        binding.recommendedRV.adapter = adapter
+        binding.recommendedRV.layoutManager = LinearLayoutManager(context)
             .apply {
                 orientation = RecyclerView.HORIZONTAL
             }
