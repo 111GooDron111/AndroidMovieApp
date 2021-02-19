@@ -1,6 +1,7 @@
 package com.dmabram15.androidmovieapp.view
 
 import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dmabram15.androidmoviesapp.R
 import com.dmabram15.androidmovieapp.model.Movie
+import com.dmabram15.androidmovieapp.view.services.InternetLoadService
 import com.dmabram15.androidmovieapp.viewmodel.MainMoviesFragmentViewModel
 import com.dmabram15.androidmovieapp.viewmodel.MovieCardAdapter
 import com.dmabram15.androidmovieapp.viewmodel.OnMovieCardClickListener
@@ -73,6 +75,8 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
     }
 
     override fun onMovieCardClick(movie: Movie) {
+        InternetLoadService.start(requireContext(), Intent(requireContext(), InternetLoadService::class.java))
+
         val bundle = Bundle()
         bundle.putParcelable(MovieInfoFragment.MOVIE_KEY, movie)
         val infoFragment = MovieInfoFragment.newInstance()

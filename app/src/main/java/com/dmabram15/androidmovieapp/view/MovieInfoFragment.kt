@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dmabram15.androidmoviesapp.R
 import com.dmabram15.androidmovieapp.model.Movie
 import com.dmabram15.androidmovieapp.viewmodel.MovieInfoFragmentViewModel
 import com.dmabram15.androidmoviesapp.databinding.MovieInfoFragmentBinding
@@ -31,7 +30,7 @@ class MovieInfoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = MovieInfoFragmentBinding.inflate(inflater)
         return binding.root
     }
