@@ -24,12 +24,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966d9daf-7233-4cff-bd16-7caba5289df8" name="StandardChangeList" comment="">
+    <list default="true" id="966d9daf-7233-4cff-bd16-7caba5289df8" name="StandardChangeList" comment="broadcast Added">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/model/MoviesList.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/view/bcreceivers/ConnectivityReceiver.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/view/MainMoviesFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/view/MainMoviesFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/view/MovieInfoFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/view/MovieInfoFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/view/services/InternetLoadService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/view/services/InternetLoadService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/model/Movie.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/model/Movie.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/view/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dmabram15/androidmovieapp/view/MainActivity.kt" afterDir="false" />
     </list>
     <list id="c8015cec-0a23-4501-8ed0-433541a830c9" name="Default Changelist" comment="change resource to binding">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
@@ -118,7 +118,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Honor_7A_API_21]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -139,6 +139,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -159,8 +160,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="NXEDU19726000298" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-02-11T05:50:01.828Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Honor_7A_API_21" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-02-22T06:45:58.277Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -248,7 +249,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f1dd288f-af40-4ad1-b5db-375ea6e33501" name="Default Changelist" comment="" />
+      <changelist id="c8015cec-0a23-4501-8ed0-433541a830c9" name="Default Changelist" comment="change resource to binding" />
       <created>1613021885429</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -268,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613753349697</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add and start service">
+      <created>1613761630087</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1613761630087</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,7 +294,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson 3, 4 done" />
     <MESSAGE value="change resource to binding" />
-    <option name="LAST_COMMIT_MESSAGE" value="change resource to binding" />
+    <MESSAGE value="add and start service" />
+    <option name="LAST_COMMIT_MESSAGE" value="add and start service" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -306,20 +315,20 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="137" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1613022234377" />
-    <state x="666" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1613757122995">
+    <state x="666" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1613975517541">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="474" y="100" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1613029301769" />
-    <state x="666" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1613757122995" />
+    <state x="666" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1613975517541" />
     <state x="444" y="175" width="480" height="417" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1613028730320">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="444" y="175" width="480" height="417" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1613028730320" />
-    <state x="416" y="0" key="CommitChangelistDialog2" timestamp="1613753348207">
+    <state x="416" y="0" key="CommitChangelistDialog2" timestamp="1613976411621">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="296" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1613392205139" />
-    <state x="416" y="0" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1613753348207" />
+    <state x="416" y="0" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1613976411621" />
     <state x="665" y="311" key="FileChooserDialogImpl" timestamp="1613752826966">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -328,26 +337,26 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="434" y="251" key="Github.CreatePullRequestDialog/0.0.1366.768@0.0.1366.768" timestamp="1613044727579" />
-    <state width="1876" height="295" key="GridCell.Tab.0.bottom" timestamp="1613760871600">
+    <state width="1876" height="295" key="GridCell.Tab.0.bottom" timestamp="1613761637650">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1322" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1613391558114" />
-    <state width="1876" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1613760871600" />
-    <state width="1876" height="295" key="GridCell.Tab.0.center" timestamp="1613760871600">
+    <state width="1876" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1613761637650" />
+    <state width="1876" height="295" key="GridCell.Tab.0.center" timestamp="1613761637650">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1322" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1613391558113" />
-    <state width="1876" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1613760871600" />
-    <state width="1876" height="295" key="GridCell.Tab.0.left" timestamp="1613760871600">
+    <state width="1876" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1613761637650" />
+    <state width="1876" height="295" key="GridCell.Tab.0.left" timestamp="1613761637650">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1322" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1613391558113" />
-    <state width="1876" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1613760871600" />
-    <state width="1876" height="295" key="GridCell.Tab.0.right" timestamp="1613760871600">
+    <state width="1876" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1613761637650" />
+    <state width="1876" height="295" key="GridCell.Tab.0.right" timestamp="1613761637650">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1322" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1613391558113" />
-    <state width="1876" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1613760871600" />
+    <state width="1876" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1613761637650" />
     <state width="1876" height="295" key="GridCell.Tab.1.bottom" timestamp="1613760871589">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -377,14 +386,19 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="790" y="409" key="VCS.EditChangelistDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1613753400591" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1613044365964">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="387" y="165" key="Vcs.Push.Dialog.v2" timestamp="1613976700140">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1613044365964" />
+    <state x="387" y="165" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1613976700140" />
     <state x="683" y="274" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1613752752214">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="683" y="274" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1613752752214" />
+    <state x="671" y="253" key="git4idea.branch.GitSmartOperationDialog" timestamp="1613976642770">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="671" y="253" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1613976642770" />
     <state x="339" y="172" key="run.anything.popup" timestamp="1613391937842">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
