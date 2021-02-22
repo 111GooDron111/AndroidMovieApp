@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.dmabram15.androidmovieapp.model.Movie
 import com.dmabram15.androidmovieapp.viewmodel.MovieInfoFragmentViewModel
 import com.dmabram15.androidmoviesapp.databinding.MovieInfoFragmentBinding
+import com.squareup.picasso.Picasso
 import java.io.BufferedInputStream
 
 class MovieInfoFragment : Fragment() {
@@ -48,8 +49,11 @@ class MovieInfoFragment : Fragment() {
 
     private fun showMovie(it: Movie?) {
         binding.titleMovieInfoTextView.text = it?.title
-        binding.descriptionInfoTextView.text = it?.descriptionMovie
-        binding.bannerInfoImView.setImageBitmap(getBitmap(it?.assetPath))
+        binding.descriptionInfoTextView.text = it?.overview
+
+        Picasso.get()
+            .load("https://image.tmdb.org/t/p/w500/${it?.poster_path}")
+            .into(binding.bannerInfoImView)
     }
 
     private fun getBitmap(assetPath: String?): Bitmap {

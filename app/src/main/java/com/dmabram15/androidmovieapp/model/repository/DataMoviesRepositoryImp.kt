@@ -10,27 +10,27 @@ class DataMoviesRepositoryImp() : MoviesRepository {
 
     private val movies = arrayListOf(
         Movie(
-            "Stranger Things", "BlaBLaBla...",
+            0,"Stranger Things", "BlaBLaBla...",
             "${pathPrefix}stranger_things.jpg"
         ),
         Movie(
-            "Tenet", "Tenet. The movie is ...",
+            1,"Tenet", "Tenet. The movie is ...",
             "${pathPrefix}dovod.jpg"
         ),
         Movie(
-            "Empty man", "Empty man. The movie is ...",
+            2,"Empty man", "Empty man. The movie is ...",
             "${pathPrefix}empty_man.jpg"
         ),
         Movie(
-            "Witches", "Witches. The movie is ...",
+            3,"Witches", "Witches. The movie is ...",
             "${pathPrefix}witches.jpg"
         ),
         Movie(
-            "The Secret: Dare to Dream", "The Secret. The movie is ...",
+            4,"The Secret: Dare to Dream", "The Secret. The movie is ...",
             "${pathPrefix}secret.jpg"
         ),
         Movie(
-            "The Call of the Wild", "The Call of the Wild. The movie is ...",
+            5,"The Call of the Wild", "The Call of the Wild. The movie is ...",
             "${pathPrefix}call.jpg"
         )
     )
