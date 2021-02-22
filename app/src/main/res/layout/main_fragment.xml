@@ -33,6 +33,7 @@
         app:layout_constraintVertical_bias="0.02" />
 
     <View
+        android:id="@+id/delimiterLineView"
         android:layout_width="0dp"
         android:layout_height="@dimen/delimiter_line_width"
         android:background="@color/grey_line_delimiter"
