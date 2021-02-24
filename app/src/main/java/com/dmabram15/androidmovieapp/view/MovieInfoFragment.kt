@@ -8,12 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.lifecycle.Observer
-import com.dmabram15.androidmoviesapp.R
 import com.dmabram15.androidmovieapp.model.Movie
 import com.dmabram15.androidmovieapp.viewmodel.MovieInfoFragmentViewModel
+import com.dmabram15.androidmoviesapp.databinding.MovieInfoFragmentBinding
+import com.squareup.picasso.Picasso
 import java.io.BufferedInputStream
 
 class MovieInfoFragment : Fragment() {
@@ -22,10 +20,9 @@ class MovieInfoFragment : Fragment() {
         fun newInstance() = MovieInfoFragment()
     }
 
+    private lateinit var binding: MovieInfoFragmentBinding
+
     private lateinit var selectedMovie: Movie
-    private lateinit var title: TextView
-    private lateinit var description: TextView
-    private lateinit var bitmapBanner: ImageView
 
     private val viewModel: MovieInfoFragmentViewModel by lazy {
         ViewModelProvider(this).get(MovieInfoFragmentViewModel::class.java)
@@ -34,8 +31,9 @@ class MovieInfoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.movie_info_fragment, container, false)
+    ): View {
+        binding = MovieInfoFragmentBinding.inflate(inflater)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -45,18 +43,17 @@ class MovieInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        title = view.findViewById(R.id.titleMovieInfoTextView)
-        description = view.findViewById(R.id.descriptionInfoTextView)
-        bitmapBanner = view.findViewById(R.id.bannerInfoImView)
-
         selectedMovie = ((arguments?.getParcelable<Movie>(MOVIE_KEY)) as Movie)
         showMovie(selectedMovie)
     }
 
     private fun showMovie(it: Movie?) {
-        title.text = it?.title
-        description.text = it?.descriptionMovie
-        bitmapBanner.setImageBitmap(getBitmap(it?.assetPath))
+        binding.titleMovieInfoTextView.text = it?.title
+        binding.descriptionInfoTextView.text = it?.overview
+
+        Picasso.get()
+            .load("https://image.tmdb.org/t/p/w500/${it?.poster_path}")
+            .into(binding.bannerInfoImView)
     }
 
     private fun getBitmap(assetPath: String?): Bitmap {

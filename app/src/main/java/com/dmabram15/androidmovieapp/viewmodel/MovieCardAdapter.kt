@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dmabram15.androidmoviesapp.R
 import com.dmabram15.androidmovieapp.model.Movie
 import com.google.android.material.textview.MaterialTextView
+import com.squareup.picasso.Picasso
 import java.io.BufferedInputStream
 
 class MovieCardAdapter(
     private val context: Context?,
-    private val movies: ArrayList<Movie>,
+    private val movies: java.util.ArrayList<Movie>,
     private val onMovieCardClickListener: OnMovieCardClickListener
 ) : RecyclerView.Adapter<MovieCardAdapter.MovieCardViewHolder>() {
 
@@ -44,10 +45,10 @@ class MovieCardAdapter(
 
     // По пути получает баннер и устанавливает в ImageView
     private fun setImage(cardViewHolder: MovieCardViewHolder, position: Int) {
-        val reader = BufferedInputStream(context?.assets?.open(movies[position].assetPath))
-        val bitmap: Bitmap = BitmapFactory.decodeStream(reader)
-        reader.close()
-        cardViewHolder.imageView.setImageBitmap(bitmap)
+        val name  = movies[position].poster_path
+        Picasso.get()
+            .load("https://image.tmdb.org/t/p/w500/$name")
+            .into(cardViewHolder.imageView)
     }
 
     private fun setTitle(cardViewHolder: MovieCardViewHolder, position: Int) {
