@@ -14,22 +14,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dmabram15.androidmoviesapp.R
 import com.dmabram15.androidmovieapp.model.Movie
-import com.dmabram15.androidmovieapp.model.MoviesList
-import com.dmabram15.androidmovieapp.view.services.InternetLoadService
 import com.dmabram15.androidmovieapp.viewmodel.MainMoviesFragmentViewModel
 import com.dmabram15.androidmovieapp.viewmodel.MovieCardAdapter
 import com.dmabram15.androidmovieapp.viewmodel.OnMovieCardClickListener
 import com.dmabram15.androidmoviesapp.databinding.MainFragmentBinding
-import com.dmabram15.androidmoviesapp.databinding.MovieInfoFragmentBinding
-import android.content.BroadcastReceiver as BroadcastReceiver
 
 class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
 
     private lateinit var adapter: MovieCardAdapter
 
     private lateinit var binding: MainFragmentBinding
-
-    private lateinit var moviesObserver: Observer<ArrayList<Movie>>
 
     companion object {
         fun newInstance() = MainMoviesFragment()
@@ -47,35 +41,14 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
         return binding.main
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        //initializeProperties()
-        context?.let { setRecyclerViews(it, ArrayList(0)) }
-        initializeBCReceivers()
-
-        InternetLoadService.start(requireContext(), Intent(requireContext(), InternetLoadService::class.java))
-    }
-
-    private fun initializeBCReceivers() {
-        val moviesReceiver: BroadcastReceiver = object : BroadcastReceiver() {
-            override fun onReceive(context: Context?, intent: Intent?) {
-                val moviesList = intent?.getParcelableExtra<MoviesList>(MOVIES_EXTRA_KEY)
-                moviesList?.let { adapter.changeMovies(it.results) }
-            }
-        }
-
-        context?.registerReceiver(moviesReceiver, IntentFilter(MOVIES_LIST_INTENT_FILTER))
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initializeProperties()
     }
 
     private fun initializeProperties() {
-        Observer<ArrayList<Movie>> { renderMovies(ArrayList(0)) }.also { moviesObserver = it }
-        viewModel.getMovies().observe(viewLifecycleOwner, moviesObserver)
-        viewModel.getMovieFromData()
+        context?.let { setRecyclerViews(it, ArrayList(0)) }
+        viewModel.getMovies().observe(viewLifecycleOwner, { renderMovies(it)})
     }
 
     //Настройка и отображение ресайклера
@@ -89,12 +62,11 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
             }
     }
 
-    private fun renderMovies(it: ArrayList<Movie>) {
-        this.context?.let { it1 -> setRecyclerViews(it1, it) }
+    private fun renderMovies(movies: ArrayList<Movie>) {
+        adapter.changeMovies(movies)
     }
 
     override fun onMovieCardClick(movie: Movie) {
-
         val bundle = Bundle()
         bundle.putParcelable(MovieInfoFragment.MOVIE_KEY, movie)
         val infoFragment = MovieInfoFragment.newInstance()
