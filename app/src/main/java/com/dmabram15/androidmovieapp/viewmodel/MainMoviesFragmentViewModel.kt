@@ -17,8 +17,8 @@ class MainMoviesFragmentViewModel() : ViewModel() {
         return getMovieFromData(MoviesAPI.DAY)
     }
 
-    fun getMovieFromData(period: String) : LiveData<ArrayList<Movie>> {
-        Thread{
+    fun getMovieFromData(period: String): LiveData<ArrayList<Movie>> {
+        Thread {
             val movies = moviesRepository.getMoviesForPeriod(period)
             movies.let { liveMovieToUpdate.postValue(it) }
         }.start()

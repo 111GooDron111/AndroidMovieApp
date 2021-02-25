@@ -1,15 +1,12 @@
 package com.dmabram15.androidmovieapp.view
 
 import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dmabram15.androidmoviesapp.R
@@ -48,10 +45,9 @@ class MainMoviesFragment : Fragment(), OnMovieCardClickListener {
 
     private fun initializeProperties() {
         context?.let { setRecyclerViews(it, ArrayList(0)) }
-        viewModel.getMovies().observe(viewLifecycleOwner, { renderMovies(it)})
+        viewModel.getMovies().observe(viewLifecycleOwner, { renderMovies(it) })
     }
 
-    //Настройка и отображение ресайклера
     private fun setRecyclerViews(context: Context, movies: ArrayList<Movie>) {
 
         adapter = MovieCardAdapter(context, movies, this)

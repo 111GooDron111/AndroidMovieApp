@@ -1,6 +1,5 @@
 package com.dmabram15.androidmovieapp.view
 
-import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
@@ -17,11 +16,11 @@ class MainActivity : AppCompatActivity() {
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
-    private val receiver : ConnectivityReceiver by lazy {
+    private val receiver: ConnectivityReceiver by lazy {
         ConnectivityReceiver()
     }
 
-    private val binding : MainActivityBinding by lazy {
+    private val binding: MainActivityBinding by lazy {
         MainActivityBinding.inflate(layoutInflater)
     }
 

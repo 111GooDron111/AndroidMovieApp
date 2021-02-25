@@ -6,6 +6,6 @@ import kotlinx.parcelize.Parcelize
 
 
 @Parcelize
-class MoviesDTO (
-    @SerializedName("results") var movies : ArrayList<Movie>?
-    ) : Parcelable
+class MoviesDTO(
+    @SerializedName("results") var movies: ArrayList<Movie>?
+) : Parcelable

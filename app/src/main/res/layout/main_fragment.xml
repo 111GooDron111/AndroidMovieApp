@@ -12,7 +12,7 @@
         android:id="@+id/recommendedLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/recommended_label_TextView"
+        android:text="@string/trending_label_TextView"
         android:textSize="@dimen/header_text_size"
         android:textColor="@color/grey_line_delimiter"
         app:layout_constraintBottom_toBottomOf="parent"

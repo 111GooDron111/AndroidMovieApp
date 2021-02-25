@@ -45,7 +45,7 @@ class MovieCardAdapter(
 
     // По пути получает баннер и устанавливает в ImageView
     private fun setImage(cardViewHolder: MovieCardViewHolder, position: Int) {
-        val name  = movies[position].poster_path
+        val name = movies[position].poster_path
         Picasso.get()
             .load("https://image.tmdb.org/t/p/w500/$name")
             .into(cardViewHolder.imageView)

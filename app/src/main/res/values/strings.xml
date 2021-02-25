@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">AndroidMoviesApp</string>
-    <string name="recommended_label_TextView">Recommended:</string>
+    <string name="trending_label_TextView">Trending:</string>
 </resources>
