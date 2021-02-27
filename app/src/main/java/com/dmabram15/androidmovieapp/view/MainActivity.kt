@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, MainMoviesFragment.newInstance())
+            .replace(R.id.container, MoviesFragment.newInstance())
             .commitAllowingStateLoss()
 
         registerReceiver(receiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
