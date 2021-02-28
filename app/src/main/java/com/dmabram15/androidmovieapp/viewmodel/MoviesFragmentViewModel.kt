@@ -23,7 +23,7 @@ class MoviesFragmentViewModel() : ViewModel() {
             val serverResponse : MoviesDTO? = response.body()
             liveMovieToUpdate.postValue(
                 if (response.isSuccessful && serverResponse != null){
-                    getCheckedResponce(serverResponse)
+                    getCheckedResponse(serverResponse)
                 }
             else AppState.Error(Throwable("Данные не получены"))
             )
@@ -37,10 +37,9 @@ class MoviesFragmentViewModel() : ViewModel() {
     fun getLiveData() = liveMovieToUpdate
 
     @Suppress("NullChecksToSafeCall")
-    private fun getCheckedResponce(serverResponse: MoviesDTO): AppState {
-        if (serverResponse.movies == null) {
-            return AppState.Error(Throwable("Данные не получены"))
-        }
-        else return AppState.Success(serverResponse.movies!!)
+    private fun getCheckedResponse(serverResponse: MoviesDTO): AppState {
+        return if (serverResponse.movies == null) {
+            AppState.Error(Throwable("Данные не получены"))
+        } else AppState.Success(serverResponse.movies!!)
     }
 }

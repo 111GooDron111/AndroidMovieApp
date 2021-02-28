@@ -4,6 +4,7 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dmabram15.androidmovieapp.view.bcreceivers.ConnectivityReceiver
 import com.dmabram15.androidmoviesapp.R
@@ -28,11 +29,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, MoviesFragment.newInstance())
-            .commitAllowingStateLoss()
+        showFragment()
 
         registerReceiver(receiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+    }
+
+    private fun showFragment() {
+        val count = supportFragmentManager.backStackEntryCount
+        val fragment = when {
+            count > 0 -> supportFragmentManager.fragments[count - 1]
+            else -> MoviesFragment.newInstance()
+        }
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .commitNow()
     }
 
     override fun onDestroy() {
