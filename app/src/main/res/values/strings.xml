@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AndroidMoviesApp</string>
     <string name="trending_label_TextView">Trending:</string>
+    <string name="menu_history">History</string>
 </resources>

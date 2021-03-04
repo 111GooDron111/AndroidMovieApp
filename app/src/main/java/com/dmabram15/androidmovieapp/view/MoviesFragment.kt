@@ -1,7 +1,6 @@
 package com.dmabram15.androidmovieapp.view
 
 import android.content.Context
-import android.opengl.Visibility
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -72,7 +71,7 @@ class MoviesFragment : Fragment(), OnMovieCardClickListener {
             }
             is AppState.Error -> {
                 binding.mainFragmentLoadingLayout.visibility = View.GONE
-                binding.main.snackBarShow(appState.error.message.toString())
+                binding.main.showSnackbar(appState.error.message.toString())
             }
         }
     }
@@ -88,7 +87,9 @@ class MoviesFragment : Fragment(), OnMovieCardClickListener {
             ?.addToBackStack("")
             ?.commitAllowingStateLoss()
 
+        viewModel.saveMovieToDb(movie)
+
         (activity?.findViewById<View>(R.id.delimiterLineView))
-            ?.snackBarShow("${movie.title} is showing")
+            ?.showSnackbar("${movie.title} is showing")
     }
 }
