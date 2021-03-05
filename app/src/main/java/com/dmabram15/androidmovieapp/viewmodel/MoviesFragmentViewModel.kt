@@ -2,8 +2,11 @@ package com.dmabram15.androidmovieapp.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dmabram15.App
+import com.dmabram15.androidmovieapp.model.Movie
 import com.dmabram15.androidmovieapp.model.MoviesDTO
 import com.dmabram15.androidmovieapp.model.repository.InetMoviesRepo
+import com.dmabram15.androidmovieapp.model.repository.LocalRepositoryImpl
 import com.dmabram15.androidmovieapp.model.repository.MoviesInternetRepository
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,6 +16,7 @@ class MoviesFragmentViewModel() : ViewModel() {
 
     private val liveMovieToUpdate = MutableLiveData<AppState>()
     private val moviesRepository: MoviesInternetRepository = InetMoviesRepo()
+    private val localRepositoryImpl : LocalRepositoryImpl = LocalRepositoryImpl(App.getHistoryDAO())
 
     fun getMovieFromData() {
         moviesRepository.getMoviesForPeriod("day", callback)
@@ -32,6 +36,12 @@ class MoviesFragmentViewModel() : ViewModel() {
         override fun onFailure(call: Call<MoviesDTO>, t: Throwable) {
             liveMovieToUpdate.postValue(AppState.Error(Throwable("Данные не получены")))
         }
+    }
+
+    fun saveMovieToDb(movie : Movie) {
+        Thread{
+            localRepositoryImpl.saveEntity(movie)
+        }.start()
     }
 
     fun getLiveData() = liveMovieToUpdate
