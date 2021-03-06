@@ -1,61 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dmabram15.androidmovieapp.view.MoviesFragment">
+    android:layout_width="match_parent"
+    android:id="@+id/main">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/recommendedLabelTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/trending_label_TextView"
-        android:textSize="@dimen/header_text_size"
-        android:textColor="@color/grey_line_delimiter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01999998" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recommendedRV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recommendedLabelTextView"
-        app:layout_constraintVertical_bias="0.02" />
-
-    <View
-        android:id="@+id/delimiterLineView"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/delimiter_line_width"
-        android:background="@color/grey_line_delimiter"
-        android:paddingHorizontal="@dimen/primary_padding"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recommendedRV"
-        app:layout_constraintVertical_bias="0.02" />
-
-    <FrameLayout
-        android:id="@+id/mainFragmentLoadingLayout"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:visibility="gone"
-        tools:visibility="visible">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/primary_padding"
+        tools:context="com.dmabram15.androidmovieapp.view.MoviesFragment">
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/recommendedLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-    </FrameLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="@string/trending_label_TextView"
+            android:textSize="@dimen/header_text_size"
+            android:textColor="@color/grey_line_delimiter"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recommendedRV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/delimiter_line_width"
+            android:background="@color/grey_line_delimiter"
+            android:paddingHorizontal="@dimen/primary_padding"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/actionLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_label_TextView"
+            android:textSize="@dimen/header_text_size"
+            android:textColor="@color/grey_line_delimiter"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/actionRV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/delimiter_line_width"
+            android:background="@color/grey_line_delimiter"
+            android:paddingHorizontal="@dimen/primary_padding"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/comedyLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comedy_label_TextView"
+            android:textSize="@dimen/header_text_size"
+            android:textColor="@color/grey_line_delimiter"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/comedyRV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/delimiter_line_width"
+            android:background="@color/grey_line_delimiter"
+            android:paddingHorizontal="@dimen/primary_padding"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/familyLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/family_label_TextView"
+            android:textSize="@dimen/header_text_size"
+            android:textColor="@color/grey_line_delimiter"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/familyRV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/delimiter_line_width"
+            android:background="@color/grey_line_delimiter"
+            android:paddingHorizontal="@dimen/primary_padding"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fantasyLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fantasy_label_TextView"
+            android:textSize="@dimen/header_text_size"
+            android:textColor="@color/grey_line_delimiter"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fantasyRV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/delimiter_line_width"
+            android:background="@color/grey_line_delimiter"
+            android:paddingHorizontal="@dimen/primary_padding" />
+
+    </LinearLayout>
+</ScrollView>

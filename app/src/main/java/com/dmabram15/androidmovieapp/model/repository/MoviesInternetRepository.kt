@@ -5,4 +5,6 @@ import retrofit2.Callback
 
 interface MoviesInternetRepository {
     fun getMoviesForPeriod(period: String, callback: Callback<MoviesDTO>)
+
+    fun getMoviesByGenres(isAdult: Boolean, genres : String, callback: Callback<MoviesDTO>)
 }
