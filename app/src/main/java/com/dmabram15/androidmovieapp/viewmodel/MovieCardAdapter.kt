@@ -17,9 +17,10 @@ import java.io.BufferedInputStream
 
 class MovieCardAdapter(
     private val context: Context?,
-    private val movies: java.util.ArrayList<Movie>,
     private val onMovieCardClickListener: OnMovieCardClickListener
 ) : RecyclerView.Adapter<MovieCardAdapter.MovieCardViewHolder>() {
+
+    private val movies: java.util.ArrayList<Movie> = ArrayList(0)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieCardViewHolder {
         val view = LayoutInflater.from(context).inflate(
@@ -45,7 +46,7 @@ class MovieCardAdapter(
 
     // По пути получает баннер и устанавливает в ImageView
     private fun setImage(cardViewHolder: MovieCardViewHolder, position: Int) {
-        val name  = movies[position].poster_path
+        val name = movies[position].poster_path
         Picasso.get()
             .load("https://image.tmdb.org/t/p/w500/$name")
             .into(cardViewHolder.imageView)

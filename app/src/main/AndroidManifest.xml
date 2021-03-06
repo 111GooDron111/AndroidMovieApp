@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.dmabram15.androidmoviesapp">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:allowBackup="true"
+        android:name="com.dmabram15.App"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidMoviesApp">
+        android:theme="@style/Theme.AndroidMoviesApp"
+        tools:replace="android:allowBackup">
+
         <activity android:name="com.dmabram15.androidmovieapp.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +24,6 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.dmabram15.androidmovieapp.view.services.InternetLoadService"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:exported="true"/>
     </application>
 
 </manifest>
