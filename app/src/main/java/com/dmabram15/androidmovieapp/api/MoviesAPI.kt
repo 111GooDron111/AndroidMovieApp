@@ -11,13 +11,29 @@ interface MoviesAPI {
     companion object {
         const val DAY = "day"
         const val WEEK = "week"
+        const val LANGUAGE_EN = "EN-us"
+        const val SORT_POPULARITY = "popularity.desc"
+
+        //Различные жанры
+        const val FANTASY_GENRES = "14"
+        const val ACTION_GENRES = "28"
+        const val COMEDY_GENRES = "35"
+        const val FAMILY_GENRES = "10751"
     }
 
     @GET("trending/movie/{period}")
-    fun getRecommended(
+    fun getTrending(
         @Path ("period") period : String,
         @Query("api_key") key : String,
         @Query("language") locale : String
     ) : Call<MoviesDTO>
 
+    @GET("discover/movie")
+    fun getByGenres (
+        @Query("api_key") key : String,
+        @Query("language") locale : String,
+        @Query("sort_by") sort : String,
+        @Query("include_adult") isAdult : Boolean,
+        @Query("with_genres") genres : String,
+    ) : Call<MoviesDTO>
 }

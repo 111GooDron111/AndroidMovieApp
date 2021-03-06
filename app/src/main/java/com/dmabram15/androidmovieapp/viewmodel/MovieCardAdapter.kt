@@ -17,9 +17,10 @@ import java.io.BufferedInputStream
 
 class MovieCardAdapter(
     private val context: Context?,
-    private val movies: java.util.ArrayList<Movie>,
     private val onMovieCardClickListener: OnMovieCardClickListener
 ) : RecyclerView.Adapter<MovieCardAdapter.MovieCardViewHolder>() {
+
+    private val movies: java.util.ArrayList<Movie> = ArrayList(0)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieCardViewHolder {
         val view = LayoutInflater.from(context).inflate(

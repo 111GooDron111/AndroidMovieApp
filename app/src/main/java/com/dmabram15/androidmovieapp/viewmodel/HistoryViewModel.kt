@@ -19,7 +19,7 @@ class HistoryViewModel : ViewModel() {
         Thread{
             val movies = localeRepository.getAllHistory()
             movies.let {
-                historyLifeData.postValue(AppState.Success(movies))
+                historyLifeData.postValue(AppState.Success(movies, ""))
             }
         }.start()
     }
