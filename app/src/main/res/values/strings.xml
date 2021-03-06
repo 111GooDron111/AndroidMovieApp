@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">AndroidMoviesApp</string>
-    <string name="trending_label_TextView">Trending:</string>
+    <string name="trending_label_TextView">Trending</string>
     <string name="menu_history">History</string>
+    <string name="action_label_TextView">Action</string>
+    <string name="comedy_label_TextView">Comedy</string>
+    <string name="family_label_TextView">Family</string>
+    <string name="fantasy_label_TextView">Fantasy</string>
+    <string name="movie_banner_description">Movie banner</string>
 </resources>
