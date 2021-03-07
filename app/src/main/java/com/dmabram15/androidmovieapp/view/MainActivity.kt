@@ -51,6 +51,14 @@ class MainActivity : AppCompatActivity() {
                     .commitAllowingStateLoss()
                 true
             }
+
+            R.id.settings_menu_item -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, SettingFragment.newInstance())
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

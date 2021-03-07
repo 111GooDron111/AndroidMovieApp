@@ -18,6 +18,8 @@ class MoviesFragmentViewModel() : ViewModel() {
     val liveFamily = MutableLiveData<AppState>()
     val liveFantasy = MutableLiveData<AppState>()
 
+    var isAdultOn : Boolean = false
+
     private val liveMovieToUpdate = mutableMapOf<String, MutableLiveData<AppState>>(
         Pair("", liveTrending),
         Pair(MoviesAPI.ACTION_GENRES, liveAction),
@@ -44,7 +46,7 @@ class MoviesFragmentViewModel() : ViewModel() {
 
     private fun getMovieByGenres(genres: String) {
         val callback = MovieCallback(genres, liveMovieToUpdate)
-        moviesRepository.getMoviesByGenres(false, genres, callback)
+        moviesRepository.getMoviesByGenres(isAdultOn, genres, callback)
     }
 
     fun saveMovieToDb(movie : Movie) {

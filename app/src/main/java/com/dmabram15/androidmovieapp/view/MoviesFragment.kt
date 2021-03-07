@@ -41,6 +41,7 @@ class MoviesFragment : Fragment(), OnMovieCardClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeProperties()
+        loadSettings()
 
         viewModel.getMovieFromInternet()
     }
@@ -52,6 +53,13 @@ class MoviesFragment : Fragment(), OnMovieCardClickListener {
         viewModel.liveComedy.observe(viewLifecycleOwner, { renderMovies(it) })
         viewModel.liveFamily.observe(viewLifecycleOwner, { renderMovies(it) })
         viewModel.liveFantasy.observe(viewLifecycleOwner, { renderMovies(it) })
+    }
+
+    private fun loadSettings() {
+        activity?.let {
+            viewModel.isAdultOn = it.getPreferences(Context.MODE_PRIVATE)
+                .getBoolean(ADULT_PREFER_KEY, false)
+        }
     }
 
     private fun setRecyclerViews() {
