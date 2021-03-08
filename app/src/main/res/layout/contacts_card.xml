@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/primary_padding">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/nameContactTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/usual_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Name Surname" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phoneNumberContactsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/primary_padding"
+        android:textSize="@dimen/usual_text_size"
+        app:layout_constraintStart_toStartOf="@id/nameContactTextView"
+        app:layout_constraintTop_toBottomOf="@id/nameContactTextView"
+        tools:text="+79281331545" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/delimiter_line_width"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneNumberContactsTextView"
+        android:background="@color/material_on_primary_disabled"
+        android:layout_marginTop="@dimen/primary_padding"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
