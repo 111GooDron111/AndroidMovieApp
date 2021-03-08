@@ -7,4 +7,6 @@
     <string name="family_label_TextView">Family</string>
     <string name="fantasy_label_TextView">Fantasy</string>
     <string name="movie_banner_description">Movie banner</string>
+    <string name="menu_settings">Settings</string>
+    <string name="include_adult_setting">include adult</string>
 </resources>
