@@ -21,4 +21,9 @@
         android:title="@string/menu_contacts"
         android:icon="@drawable/ic_settings"/>
 
+    <item
+        android:id="@+id/maps_menu_item"
+        android:title="@string/menu_maps"
+        android:icon="@drawable/ic_settings"/>
+
 </menu>

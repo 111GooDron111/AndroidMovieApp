@@ -11,4 +11,9 @@
     <string name="include_adult_setting">include adult</string>
     <string name="menu_contacts">Contacts</string>
     <string name="without_phone_number">Without phone number</string>
+    <string name="menu_maps">Google Maps</string>
+    <string name="find_maps_button_text">find</string>
+    <string name="contact_permittion_dialog_title">Access to contacts</string>
+    <string name="contact_permittion_dialog_message">Need to show contacts in app</string>
+    <string name="contact_permittion_dialog_allow_button_text">ALLOW</string>
 </resources>

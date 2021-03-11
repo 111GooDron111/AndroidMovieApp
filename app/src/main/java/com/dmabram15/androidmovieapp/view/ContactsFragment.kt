@@ -48,9 +48,9 @@ class ContactsFragment : Fragment() {
                 }
                 shouldShowRequestPermissionRationale(Manifest.permission.READ_CONTACTS) -> {
                     AlertDialog.Builder(it)
-                        .setTitle("Access to contacts")
-                        .setMessage("Need to show contacts in app")
-                        .setPositiveButton("ALLOW") { _, _ ->
+                        .setTitle(getString(R.string.contact_permittion_dialog_title))
+                        .setMessage(getString(R.string.contact_permittion_dialog_message))
+                        .setPositiveButton(getString(R.string.contact_permittion_dialog_allow_button_text)) { _, _ ->
                             requestPermission()
                         }
                         .create()
@@ -126,17 +126,19 @@ class ContactsFragment : Fragment() {
             null
         )
 
-        if (phoneCursor?.count!! > 0) {
-            var phone : String?
-            for (i in 0 until phoneCursor.count) {
-                phoneCursor.moveToPosition(i)
-                phone = phoneCursor.getString(
-                    phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
-                )
-                if (phone != null) return phone
+        phoneCursor?.let {
+            if (phoneCursor.count > 0) {
+                var phone : String?
+                for (i in 0 until phoneCursor.count) {
+                    phoneCursor.moveToPosition(i)
+                    phone = phoneCursor.getString(
+                        phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+                    )
+                    if (phone != null) return phone
+                }
             }
+            phoneCursor.close()
         }
-        phoneCursor.close()
         return null
     }
 
