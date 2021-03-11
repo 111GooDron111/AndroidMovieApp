@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dmabram15.androidmovieapp.view.MapsFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/currentSiteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding = "@dimen/primary_padding"
+        android:textSize="@dimen/usual_text_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/delimiter_line_width"
+        android:background="@color/grey_line_delimiter"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/primary_padding">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/addressEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/primary_padding"
+            android:layout_weight="3"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/searchAddressButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find_maps_button_text"/>
+
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
